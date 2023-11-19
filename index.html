@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Summarization</title>
+</head>
+<body>
+    <h1>Text Summarization</h1>
+
+    <!-- Input Section -->
+    <div id="input_section">
+        <h2>Input Text</h2>
+        <form method="POST" action="/">
+            <textarea name="user_input" rows="4" cols="50" placeholder="Enter text to summarize..."></textarea>
+            <br>
+            <input type="submit" value="Summarize">
+        </form>
+    </div>
+
+    <!-- Summary Section -->
+    {% if generated_summary %}
+    <div id="summary_section">
+        <h2>Summary Result</h2>
+        <p><strong>Generated Summary:</strong></p>
+        <p>{{ generated_summary }}</p>
+        <button onclick="backToInput()">Back to Input</button>
+    </div>
+    {% endif %}
+
+    <script>
+        function backToInput() {
+            document.getElementById("input_section").style.display = "block";
+            document.getElementById("summary_section").style.display = "none";
+        }
+    </script>
+</body>
+</html>
